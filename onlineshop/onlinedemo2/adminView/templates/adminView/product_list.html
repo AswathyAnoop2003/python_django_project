@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+  <div class="jumbotron">
+
+    <h1>Admin Page!!!!!</h1>
+      <p><a href="{% url 'adminView:create' %}" class="btn btn-primary" role="button">Create New</a> </p>
+
+      <ol>
+        {% for product in object_list %}
+           <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+
+                    <img src="{{ product.image.url}}"  width="240" height="240">
+
+
+                  <div class="caption">
+                    <h3>{{ product.name }}</h3>
+                    <h3>{{ product.price }}</h3>
+                    <p>...</p>
+                    <p><a href="{% url 'adminView:detail' pk=product.pk %}" class="btn btn-primary" role="button">View</a> </p>
+                      <p><a href="{% url 'adminView:delete' pk=product.pk %}" class="btn btn-primary" role="button">Delete</a> </p>
+<p>hdfhdgjhfhjg</p>
+                  </div>
+                </div>
+           </div>
+
+        {% endfor %}
+      </ol>
+
+  </div>
+
+
+
+{% endblock %}

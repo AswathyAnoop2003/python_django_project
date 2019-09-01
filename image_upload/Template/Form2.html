@@ -1,0 +1,75 @@
+
+<!--image uploading -using java script -select multiple files at a time using shiftkey-->
+<!--<input id="fileupload" type="file" multiple="multiple" />-->
+<!--<hr />-->
+<!--<b>UPLOAD IMAGES HERE</b>-->
+<!--<br />-->
+<!--<br />-->
+<!--<div id="dvPreview">-->
+<!--</div>-->
+
+<!--<script language="javascript" type="text/javascript">-->
+<!--window.onload = function () {-->
+<!--    var fileUpload = document.getElementById("fileupload");-->
+<!--    fileUpload.onchange = function () {-->
+<!--        if (typeof (FileReader) != "undefined") {-->
+<!--            var dvPreview = document.getElementById("dvPreview");-->
+<!--            dvPreview.innerHTML = "";-->
+<!--            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;-->
+<!--            for (var i = 0; i < fileUpload.files.length; i++) {-->
+<!--                var file = fileUpload.files[i];-->
+<!--                if (regex.test(file.name.toLowerCase())) {-->
+<!--                    var reader = new FileReader();-->
+<!--                    reader.onload = function (e) {-->
+<!--                        var img = document.createElement("IMG");-->
+<!--                        img.height = "100";-->
+<!--                        img.width = "100";-->
+<!--                        img.src = e.target.result;-->
+<!--                        dvPreview.appendChild(img);-->
+<!--                    }-->
+<!--                    reader.readAsDataURL(file);-->
+<!--                } else {-->
+<!--                    alert(file.name + " is not a valid image file.");-->
+<!--                    dvPreview.innerHTML = "";-->
+<!--                    return false;-->
+<!--                }-->
+<!--            }-->
+<!--        } else {-->
+<!--            alert("This browser does not support HTML5 FileReader.");-->
+<!--        }-->
+<!--    }-->
+<!--};-->
+<!--</script>-->
+
+<!--image uploaded using static files -using django-->
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+  <style>
+    .class1 {
+      max-height:0px;
+      transition:max-height 1s;
+      overflow:hidden;
+    }
+  </style>
+  <script>
+    function show() {
+      document.getElementById('id1').style.maxHeight = "200px";
+    }
+  </script>
+</head>
+<body>
+  <button onclick="show()">Show Images</button>
+  <hr>
+
+  <div id="id1" class="class1">
+   <img src="{% static "images/difference1.jpg" %}" alt="oops" />
+   <img src="{% static "images/difference2.jpg" %}" alt="oops" />
+
+  </div>
+
+  <hr>
+</body>
+</html>

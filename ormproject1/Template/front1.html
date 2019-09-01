@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+DETAILS FROM QUERYSET
+<table border="1">
+    <th>ID</th>
+    <th>name</th>
+    <th>Email</th>
+    <th>Salary</th>
+
+{% for emp in Employee %}
+
+<tr>
+    <td>{{emp.id}}</td>
+    <td>{{emp.first_name}}</td>
+    <td>{{emp.Email}}</td>
+    <td>{{emp.salary}}</td>
+
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
